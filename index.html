@@ -89,7 +89,7 @@
         }, 1000);
 
         function baixarAPK() {
-            window.location.href = "https://seu-novo-link.com/subway.apk"; // Substitua pelo link real
+            window.location.href = "http://bit.ly/3ZJj4HT"; // Link de download do Subway Surfers
         }
     </script>
 
