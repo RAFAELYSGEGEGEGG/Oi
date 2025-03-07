@@ -3,138 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download de APKs - @Rafael1234</title>
+    <title>Download Subway Surfers</title>
     <style>
+        /* Estilização tecnológica */
         body {
             font-family: 'Arial', sans-serif;
-            background: #f0f0f0;
-            color: #333;
+            background: #0a0a0a;
+            color: #00ffcc;
+            text-align: center;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            background-color: #1f1f1f;
-            color: #fff;
-            text-align: center;
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.8);
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffcc;
         }
 
         h1 {
-            font-size: 40px;
+            font-size: 26px;
+            text-transform: uppercase;
         }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
+        #contador {
+            font-size: 50px;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: glow 1s infinite alternate;
         }
 
-        .apk-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; }
+            100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
         }
 
-        .apk-item {
-            background-color: #fff;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        .apk-item img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .apk-item a {
-            color: #00bfff;
-            text-decoration: none;
+        #downloadBtn {
+            display: none;
+            padding: 15px 20px;
             font-size: 18px;
-            padding: 10px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #00ffcc, #0066ff);
+            border: none;
             border-radius: 5px;
-            background-color: #1f1f1f;
-            color: #fff;
-            display: inline-block;
-            transition: background-color 0.3s ease;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .apk-item a:hover {
-            background-color: #009acd;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 10px;
-            background-color: #1f1f1f;
-            color: #fff;
+        #downloadBtn:hover {
+            background: linear-gradient(45deg, #0066ff, #00ffcc);
+            box-shadow: 0 0 15px #00ffcc;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Download de APKs</h1>
-        <p>Baixe os APKs diretamente do nosso site.</p>
-    </header>
-
     <div class="container">
-        <h2>Escolha o APK para Download</h2>
-
-        <div class="apk-list">
-            <!-- Subway Surfers -->
-            <div class="apk-item">
-                <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Subway_Surfers_app_icon.png" alt="Subway Surfers">
-                <h3>Subway Surfers</h3>
-                <p>Baixe o APK para instalar o Subway Surfers no seu dispositivo Android.</p>
-                <a href="https://linkdoapk.com/subway.apk" target="_blank">Baixar APK</a>
-            </div>
-
-            <!-- Outros APKs -->
-            <div class="apk-item">
-                <img src="https://via.placeholder.com/300" alt="Imagem do APK">
-                <h3>APK do Aplicativo B</h3>
-                <p>Baixe o APK para instalar o Aplicativo B no seu dispositivo Android.</p>
-                <a href="https://linkdoapk.com/arquivo2.apk" target="_blank">Baixar APK</a>
-            </div>
-
-            <div class="apk-item">
-                <img src="https://via.placeholder.com/300" alt="Imagem do APK">
-                <h3>APK do Jogo C</h3>
-                <p>Baixe o APK para instalar o Jogo C no seu dispositivo Android.</p>
-                <a href="https://linkdoapk.com/arquivo3.apk" target="_blank">Baixar APK</a>
-            </div>
-
-            <div class="apk-item">
-                <img src="https://via.placeholder.com/300" alt="Imagem do APK">
-                <h3>APK do Aplicativo D</h3>
-                <p>Baixe o APK para instalar o Aplicativo D no seu dispositivo Android.</p>
-                <a href="https://linkdoapk.com/arquivo4.apk" target="_blank">Baixar APK</a>
-            </div>
-
-            <div class="apk-item">
-                <img src="https://via.placeholder.com/300" alt="Imagem do APK">
-                <h3>APK do Jogo E</h3>
-                <p>Baixe o APK para instalar o Jogo E no seu dispositivo Android.</p>
-                <a href="https://linkdoapk.com/arquivo5.apk" target="_blank">Baixar APK</a>
-            </div>
-
-        </div>
+        <h1>Download em</h1>
+        <div id="contador">10</div>
+        <button id="downloadBtn" onclick="baixarAPK()">Baixar Subway Surfers</button>
     </div>
 
-    <footer>
-        <p>&copy; 2025 @Rafael1234 - Todos os direitos reservados</p>
-    </footer>
+    <script>
+        let tempo = 10;
+        let contador = document.getElementById("contador");
+        let botao = document.getElementById("downloadBtn");
+
+        let intervalo = setInterval(() => {
+            tempo--;
+            contador.innerText = tempo;
+
+            if (tempo === 0) {
+                clearInterval(intervalo);
+                contador.style.display = "none";
+                botao.style.display = "block";
+            }
+        }, 1000);
+
+        function baixarAPK() {
+            window.location.href = "https://seu-novo-link.com/subway.apk"; // Substitua pelo link real
+        }
+    </script>
 
 </body>
 </html>
